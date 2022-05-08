@@ -1,23 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // const email = document.querySelector("#email");
-  // const password = document.querySelector("#password");
-  // let error = document.querySelectorAll("p");
+  let searchButton = document.querySelector("input[type=submit]");
+  let searchInput = document.querySelector("input[type=text]");
 
-  // email.addEventListener("focusout", () => {
-  //   if (email.value.length == 0) {
-  //     error[0].innerHTML = "veuillez remplir ce champs";
-  //   } else {
-  //     error[0].innerHTML = "";
-  //   }
-  //   let data = new FormData();
-  //   data.append("email", email.value);
-  //   data.append("action", "checkEmail");
+  searchInput.addEventListener("keyup", () => {
+    // console.log(txt.value);
 
-  //   fetch("traitement.php", {
-  //     method: "POST",
-  //     body: data,
-  //   })
-  //     .then((response) => response.json())
-  //     .then((response) => console.log(response));
-  // });
+    fetch("SearchController.php", {
+      method: "POST",
+      body: searchInput.value,
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Problème - code d'état HTTP : " + response.status);
+        }
+        return response.json();
+      })
+      .then((response) => {
+        // Faire action
+        if (searchInput.value == 0) {
+          console.log("veiller écrire");
+        }
+        // console.log(response);
+      })
+      .catch((e) => {
+        console.log(e.toString());
+      });
+  });
 });

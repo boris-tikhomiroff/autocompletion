@@ -1,13 +1,15 @@
-<?php
-require"./Database.php";
+<?php 
 
-class PhotographyModel {
+require './model/DBConnection.php';
+
+class Model extends DBConnection{
+    
     public function __construct()
     {
-        $this->db = Database::getPDO();
+        $this->db = DBConnection::getPDO();
     }
 
-    public function find($id){
+    public function findById($id){
         $query = $this->db->prepare('SELECT * FROM photography where id= :id');
         $query->execute(['id' => $id]);
         $result = $query->fetch(MYSQLI_ASSOC);
