@@ -1,18 +1,18 @@
 <?php
 require_once "./Database.php";
-require_once "./SynthesizerModel.php";
+require_once "./PhotographyModel.php";
 
-class SynthesizerController {
+class PhotographyController {
 
-    public static function getAllSynthesizer()
+    public static function getAllPhotographies()
     {
-        $model = new SynthesizerModel();
+        $model = new PhotographyModel();
         $getAll = $model->findAll();
     }
 
-    public static function getSynthesizer($id)
+    public static function getPhotography($id)
     {
-        $model = new SynthesizerModel();
+        $model = new PhotographyModel();
         $getOne = $model->find($id);
     }
 }

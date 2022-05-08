@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="./src/styles/main.css">
 </head>
 <body>
-    
+    <header>
+        <p>Header</p>
+    </header>
+    <main>
+        <?php require_once './utils/search.php'?>
+    </main>
+    <?php require_once './utils/footer.php'?>
 </body>
 </html>
