@@ -1,4 +1,8 @@
 <?php
+
+if($_GET['id'] == null){
+    header('location: index.php');
+}
 require_once './controllers/PhotographyController.php';
 require_once './utils/utilities.php';
 $search = new PhotographyController();

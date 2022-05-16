@@ -22,4 +22,11 @@ class Model extends DBConnection{
         $result = $query->fetchAll();
         return $result;
     }
+
+    public function search($word){
+        $query = $this->db->prepare("SELECT * FROM photography WHERE titre LIKE :term ORDER BY titre ASC");
+        $query-> execute(['term' => '%'.$word.'%']);
+        $result = $query->fetchAll();
+        return $result;
+    }
 }

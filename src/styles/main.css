@@ -1,1 +1,29 @@
-/* No CSS *//*# sourceMappingURL=main.css.map */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+a,
+a:visited {
+  color: inherit;
+}
+
+.result {
+  height: auto;
+  width: 500px;
+}
+
+ul:first-child {
+  background-color: blue;
+}
+
+ul:not(ul:first-child) {
+  background-color: green;
+}
+/*# sourceMappingURL=main.css.map */

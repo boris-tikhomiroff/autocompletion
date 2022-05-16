@@ -1,8 +1,17 @@
 <?php
-require_once './controllers/PhotographyController.php';
-$search = new PhotographyController();
-$all = $search->getAllPhotographies();
-var_dump($all);
+// require_once './controllers/PhotographyController.php';
+// require_once './controllers/SearchController.php';
+// $search = new PhotographyController();
+// $all = $search->getAllPhotographies();
+// var_dump($all);
+
+session_start();
+$_SESSION["search"] = $_POST['search'];
+var_dump($_SESSION["search"]);
+
+if(isset($_POST['submit'])){
+    header('location: ./recherche.php');
+}
 
 ?>
 <!DOCTYPE html>
@@ -20,11 +29,20 @@ var_dump($all);
         <p>Header</p>
     </header>
     <main>
-    <form action="" method="POST">
+    <form action="" method="POST" autocomplete="off">
         <label for="">Search</label>
-        <input type="text" placeholder="Search">
-        <input type="submit" value="Search">
+        <input type="text" placeholder="Search" name="search">
+        <input type="submit" value="Search" name="submit">
     </form>
+    <section class="result">
+        <ul>
+            Précis
+        </ul>
+        <hr>
+        <ul>
+            Contient
+        </ul>
+    </section>
     </main>
     <?php require_once './utils/footer.php'?>
 </body>

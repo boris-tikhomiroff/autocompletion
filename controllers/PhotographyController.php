@@ -21,5 +21,13 @@ class PhotographyController {
         }
     }
 
-    
+    public function searchbar($keywords)
+    {
+        $word = trim($keywords);
+
+        $searched = $this->model->search($word);
+
+        return $searched;
+        
+    }
 }

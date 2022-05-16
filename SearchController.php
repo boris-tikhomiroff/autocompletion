@@ -6,5 +6,4 @@ $content = trim(file_get_contents("php://input"));
 
 $model = new Model();
 $search = $model->search($content);
-
 echo json_encode($search);

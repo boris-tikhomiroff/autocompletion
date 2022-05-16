@@ -1,0 +1,18 @@
+.result {
+  // background-color: red;
+  height: auto;
+  width: 500px;
+  //   display: none;
+}
+
+ul:first-child {
+  background-color: blue;
+}
+
+ul:not(ul:first-child) {
+  background-color: green;
+}
+
+// .active {
+//   display: block;
+// }
