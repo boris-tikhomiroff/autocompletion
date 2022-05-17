@@ -9,7 +9,6 @@ session_start();
 
 $search = new PhotographyController();
 $elements = $search->searchbar($_SESSION['search']);
-// // $elementId = $element->id;
 // if (isset($_SESSION['search'])){
 //     unset($_SESSION['search']);
 // }
