@@ -4,6 +4,10 @@ require_once './controllers/PhotographyController.php';
 require_once './utils/utilities.php';
 
 session_start();
+if(isset($_POST['submit'])){
+    // header('location: ./recherche.php');
+    $_SESSION["search"] = @$_POST['search'];
+}
 // var_dump($_SESSION);
 
 
@@ -13,7 +17,7 @@ $elements = $search->searchbar($_SESSION['search']);
 //     unset($_SESSION['search']);
 // }
 
-var_dump($elements);
+// var_dump($elements);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,8 +27,26 @@ var_dump($elements);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recherche</title>
     <link rel="stylesheet" href="./src/styles/main.css">
+    <script src="./src/js/index.js"></script>
 </head>
 <body>
+    <header>
+        <a href="./index.php">G</a>
+    <form action="" method="POST" autocomplete="off">
+        <label for="">Search</label>
+        <input type="text" placeholder="Search" name="search">
+        <input type="submit" value="Search" name="submit">
+    </form>
+    <section class="result">
+        <ul>
+            Précis
+        </ul>
+        <hr>
+        <ul>
+            Contient
+        </ul>
+    </section>
+    </header>
     <h1>Hello Recherche</h1>
 
     <!-- <?php for($i = 0; isset($elements[$i]); $i++): ?>

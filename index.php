@@ -26,6 +26,7 @@ if(isset($_POST['submit'])){
 </head>
 <body>
     <header>
+        <a href="/index.php">G</a>
         <p>Header</p>
     </header>
     <main>

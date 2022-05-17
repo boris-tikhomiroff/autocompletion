@@ -15,3 +15,10 @@ function validData($data)
     $data = htmlspecialchars($data);
     return $data;
 }
+
+function send(){
+    if(isset($_POST['submit'])){
+        $_SESSION["search"] = @$_POST['search'];
+        header('location: ./recherche.php');
+    }
+}
