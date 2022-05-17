@@ -24,12 +24,17 @@ if(isset($_POST['submit'])){
     <script src="./src/js/index.js"></script>
     <link rel="stylesheet" href="./src/styles/main.css">
 </head>
-<body>
+<body class="page" data-theme="">
+    
     <header>
-        <a href="/index.php">G</a>
-        <p>Header</p>
+        <a href="index.php">G</a>
+        <div class="toggle">
+            <div class="toggle__mode">(MODE)</div>
+            <div class="toggle__circle"></div>
+        </div>
     </header>
     <main>
+        <h1>Home</h1>
     <form action="" method="POST" autocomplete="off">
         <label for="">Search</label>
         <input type="text" placeholder="Search" name="search">
