@@ -13,6 +13,14 @@ ul:not(ul:first-child) {
   background-color: green;
 }
 
+.result {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
 // .active {
 //   display: block;
 // }

@@ -26,4 +26,12 @@ ul:first-child {
 ul:not(ul:first-child) {
   background-color: green;
 }
+
+.result {
+  display: none;
+}
+
+.active {
+  display: block;
+}
 /*# sourceMappingURL=main.css.map */

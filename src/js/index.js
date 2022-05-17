@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   let searchButton = document.querySelector("input[type=submit]");
   let searchInput = document.querySelector("input[type=text]");
-  // let result = document.querySelector(".result");
+  let result = document.querySelector(".result");
   let specificResult = document.querySelector("ul");
   let approximateResult = document.querySelector("ul:not(ul:first-child)");
   const form = document.querySelector("form");
@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((response) => {
         cleanSearch();
 
+        result.classList.add("active");
+
         if (response.length == 0) {
           let resultNotFound = document.createElement("li");
           resultNotFound.innerHTML = "No results found.";
@@ -41,7 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         for (let i in response) {
           let title = response[i].titre.toLowerCase();
-          let allResult = [];
 
           if (title.startsWith(searchInput.value)) {
             const a = document.createElement("a");
@@ -50,10 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
             a.innerHTML = title;
             specificResult.appendChild(resultFind);
             resultFind.appendChild(a);
-
-            // allResult.length = 0;
-            // allResult.push(response[i].id);
-            // console.log(allResult);
           } else {
             const a = document.createElement("a");
             let resultFind = document.createElement("li");
@@ -66,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Supprime toutes les list quand input vide
           if (searchInput.value == "") {
             cleanSearch();
+            result.classList.remove("active");
           }
         }
       })

@@ -6,8 +6,8 @@
 // var_dump($all);
 
 session_start();
-$_SESSION["search"] = $_POST['search'];
-var_dump($_SESSION["search"]);
+$_SESSION["search"] = @$_POST['search'];
+// var_dump($_SESSION["search"]);
 
 if(isset($_POST['submit'])){
     header('location: ./recherche.php');
