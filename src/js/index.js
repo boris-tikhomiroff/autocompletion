@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ------------------------------------------------
                     AUTOCOMPLETE
---------------------------------------------------- */
+  --------------------------------------------------- */
   function cleanSearch() {
     while (
       specificResult.hasChildNodes() ||
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ------------------------------------------------
                     DARKMODE
---------------------------------------------------- */
+  --------------------------------------------------- */
   const toggle = document.querySelector(".toggle");
 
   function toggleTheme() {
@@ -88,12 +88,39 @@ document.addEventListener("DOMContentLoaded", () => {
       page.setAttribute("data-theme", "dark");
     } else {
       page.setAttribute("data-theme", "light");
+      // cursor.style.background = "black";
     }
   }
 
   /* ------------------------------------------------
+                    CURSOR
+  --------------------------------------------------- */
+  const cursor = document.querySelector(".cursor");
+  let flyOver = document.querySelectorAll(".flyOver");
+  console.log(flyOver);
+
+  function cursorFollower() {
+    document.addEventListener("mousemove", (ev) => {
+      cursor.style.top = ev.clientY + "px";
+      cursor.style.left = ev.clientX + "px";
+    });
+
+    for (let i = 0; flyOver.length; i++) {
+      flyOver[i].addEventListener("mouseover", (ev) => {
+        cursor.classList.add("cursor__big");
+      });
+
+      flyOver[i].addEventListener("mouseleave", (ev) => {
+        cursor.classList.remove("cursor__big");
+      });
+    }
+  }
+
+  requestAnimationFrame(cursorFollower);
+
+  /* ------------------------------------------------
                     EVENT LISTENERS
---------------------------------------------------- */
+  --------------------------------------------------- */
   searchInput.addEventListener("input", autocomplete);
   toggle.addEventListener("click", toggleTheme);
 });

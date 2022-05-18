@@ -25,31 +25,41 @@ if(isset($_POST['submit'])){
     <link rel="stylesheet" href="./src/styles/main.css">
 </head>
 <body class="page" data-theme="">
-    
-    <header>
-        <a href="index.php">G</a>
-        <div class="toggle">
-            <div class="toggle__mode">(MODE)</div>
-            <div class="toggle__circle"></div>
-        </div>
-    </header>
-    <main>
-        <h1>Home</h1>
-    <form action="" method="POST" autocomplete="off">
-        <label for="">Search</label>
-        <input type="text" placeholder="Search" name="search">
-        <input type="submit" value="Search" name="submit">
-    </form>
-    <section class="result">
-        <ul>
-            Précis
-        </ul>
-        <hr>
-        <ul>
-            Contient
-        </ul>
-    </section>
-    </main>
-    <?php require_once './utils/footer.php'?>
+    <div class="page-wrapper">
+        <!-------------------------------- LOADER -------------------------------->
+        <!-- <div class="loader">
+            <h1><span>G</span>ilbert Garcin Tribute</h1>
+        </div> -->
+
+        <!-------------------------------- CURSOR -------------------------------->
+        <!-- <div class="background cursorHover"></div> -->
+        <span class="cursor"></span>
+        
+        <header>
+            <a href="index.php" class="flyOver">G</a>
+            <div class="toggle flyOver">
+                <div class="toggle__mode">(MODE)</div>
+                <div class="toggle__circle"></div>
+            </div>
+        </header>
+        <h1 class="flyOver">Home</h1>
+        <main>
+        <form action="" method="POST" autocomplete="off">
+            <label for="">Search</label>
+            <input type="text" placeholder="Search" name="search">
+            <input type="submit" value="Search" name="submit">
+        </form>
+        <section class="result">
+            <ul>
+                Précis
+            </ul>
+            <hr>
+            <ul>
+                Contient
+            </ul>
+        </section>
+        </main>
+        <?php require_once './utils/footer.php'?>
+    </div>
 </body>
 </html>

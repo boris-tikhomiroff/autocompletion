@@ -1,12 +1,26 @@
+/* ------------------------------------------------
+                    GLOBAL
+--------------------------------------------------- */
 body {
-  width: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
+  width: 100%;
 }
+
+h1 {
+  font-size: 100px;
+  display: inline;
+}
+
+.page-wrapper {
+  padding: 32px;
+}
+
 .result {
-  // background-color: red;
   height: auto;
   width: 500px;
-  //   display: none;
+  // background-color: red;
+  display: none;
 }
 
 ul:first-child {
@@ -17,31 +31,15 @@ ul:not(ul:first-child) {
   background-color: green;
 }
 
-.result {
-  display: none;
-}
-
 .active {
   display: block;
-}
-
-.page {
-  padding: 32px;
-}
-
-[data-theme="dark"] {
-  background: #000000; /* fallback for old browsers */
-  color: rgb(255, 255, 255);
-
-  .toggle__circle {
-    background-color: #fff;
-  }
 }
 
 header {
   width: 100%;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .toggle {
@@ -49,7 +47,8 @@ header {
   align-items: center;
   justify-content: flex-end;
   cursor: pointer;
-  width: 100%;
+  justify-self: flex-end;
+  margin-left: auto;
 
   &__circle {
     background-color: #000000;
