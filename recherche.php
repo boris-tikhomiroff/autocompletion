@@ -30,7 +30,7 @@ $elements = $search->searchbar($_SESSION['search']);
     <script src="./src/js/index.js"></script>
 </head>
 <body>
-    <header>
+    <!-- <header>
         <a href="./index.php">G</a>
     <form action="" method="POST" autocomplete="off">
         <label for="">Search</label>
@@ -46,7 +46,34 @@ $elements = $search->searchbar($_SESSION['search']);
             Contient
         </ul>
     </section>
+    </header> -->
+    <header>
+        <a href="./index.php" class="flyOver">G</a>
+
+        <div class="search">
+            <form action="" method="POST" autocomplete="off">
+                <label for="">Search</label>
+                <input type="text" placeholder="Search" name="search">
+                <input type="submit" value="Search" name="submit">
+            </form>
+            <section class="search__result">
+                <ul>
+                    Précis
+                </ul>
+                <hr>
+                <ul>
+                    Contient
+                </ul>
+            </section>
+        </div>
+
+        <div class="toggle flyOver">
+            <div class="toggle__mode">(MODE)</div>
+            <div class="toggle__circle"></div>
+        </div>
+    
     </header>
+
     <h1>Hello Recherche</h1>
 
     <!-- <?php for($i = 0; isset($elements[$i]); $i++): ?>

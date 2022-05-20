@@ -25,7 +25,7 @@ $elementId = $element->id;
     <script src="./src/js/index.js"></script>
 </head>
 <body>
-<header>
+<!-- <header>
     <a href="./index.php">G</a>
     <form action="" method="POST" autocomplete="off">
         <label for="">Search</label>
@@ -41,18 +41,44 @@ $elementId = $element->id;
             Contient
         </ul>
     </section>
-</header>
+</header> -->
+    <header>
+        <a href="./index.php" class="flyOver">G</a>
 
-<main>
-    <article>
-        <img src="./src/images/<?= $element->image;?>" alt="" width="500px" height="500px">
-        <section>
-            <h2><?= $element->titre;?></h2>
-            <h2><?= formatNb($elementId);?></h2>
-            <h2><?= $element->artiste;?></h2>
-            <h2><?= $element->date;?></h2>
-        </section>
-    </article>
-</main>
+        <div class="search">
+            <form action="" method="POST" autocomplete="off">
+                <label for="">Search</label>
+                <input type="text" placeholder="Search" name="search">
+                <input type="submit" value="Search" name="submit">
+            </form>
+            <section class="search__result">
+                <ul>
+                    Précis
+                </ul>
+                <hr>
+                <ul>
+                    Contient
+                </ul>
+            </section>
+        </div>
+
+        <div class="toggle flyOver">
+            <div class="toggle__mode">(MODE)</div>
+            <div class="toggle__circle"></div>
+        </div>
+            
+    </header>
+
+    <main>
+        <article>
+            <img src="./src/images/<?= $element->image;?>" alt="" width="500px" height="500px">
+            <section>
+                <h2><?= $element->titre;?></h2>
+                <h2><?= formatNb($elementId);?></h2>
+                <h2><?= $element->artiste;?></h2>
+                <h2><?= $element->date;?></h2>
+            </section>
+        </article>
+    </main>
 </body>
 </html>

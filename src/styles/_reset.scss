@@ -12,3 +12,23 @@ a,
 a:visited {
   color: inherit;
 }
+
+input,
+button {
+  color: inherit;
+  border: none;
+  background-color: inherit;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+}
+
+label {
+  display: none;
+}
+
+@font-face {
+  font-family: "bosh";
+  src: url("../font/Bosch.otf");
+}

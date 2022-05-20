@@ -25,39 +25,77 @@ if(isset($_POST['submit'])){
     <link rel="stylesheet" href="./src/styles/main.css">
 </head>
 <body class="page" data-theme="">
-    <div class="page-wrapper">
-        <!-------------------------------- LOADER -------------------------------->
-        <!-- <div class="loader">
-            <h1><span>G</span>ilbert Garcin Tribute</h1>
-        </div> -->
+    <!--------------------- LOADER --------------------->
+    <!-- <div class="loader">
+        <h1><span>G</span>ilbert Garcin Tribute</h1>
+    </div> -->
 
-        <!-------------------------------- CURSOR -------------------------------->
-        <!-- <div class="background cursorHover"></div> -->
+    <div class="page-wrapper">
+
+        <!--------------------- CURSOR --------------------->
         <span class="cursor"></span>
         
-        <header>
+        <!-- <header>
             <a href="index.php" class="flyOver">G</a>
             <div class="toggle flyOver">
                 <div class="toggle__mode">(MODE)</div>
                 <div class="toggle__circle"></div>
             </div>
+        </header> -->
+
+        <header>
+            <a href="./index.php" class="flyOver">G</a>
+
+            <div class="menu-tog ">
+                <span></span>
+                <span></span>
+            </div>
+            
+
+            <div class="search">
+                <form action="" method="POST" autocomplete="off">
+                    <label for="">Search</label>
+                    <input type="text" placeholder="Search" name="search" class="search__value">
+                    <input type="submit" value="Search" name="submit">
+                </form>
+                <section class="search__result">
+                    <ul>
+                        Précis
+                    </ul>
+                    <hr>
+                    <ul>
+                        Contient
+                    </ul>
+                </section>
+            </div>
+
+            <div class="toggle flyOver">
+                <div class="toggle__mode">(MODE)</div>
+                <div class="toggle__circle"></div>
+            </div>
+            
         </header>
-        <h1 class="flyOver">Home</h1>
-        <main>
-        <form action="" method="POST" autocomplete="off">
-            <label for="">Search</label>
-            <input type="text" placeholder="Search" name="search">
-            <input type="submit" value="Search" name="submit">
-        </form>
-        <section class="result">
-            <ul>
-                Précis
-            </ul>
-            <hr>
-            <ul>
-                Contient
-            </ul>
-        </section>
+
+        <main class="home">
+            <h1 class="flyOver">Home</h1>
+            <!-- <form action="" method="POST" autocomplete="off">
+                <label for="">Search</label>
+                <input type="text" placeholder="Search" name="search">
+                <input type="submit" value="Search" name="submit">
+            </form>
+            <section class="result">
+                <ul>
+                    Précis
+                </ul>
+                <hr>
+                <ul>
+                    Contient
+                </ul>
+            </section> -->
+        
+            <div class="grid">
+                <div class="grid__img"></div>
+            </div>
         </main>
         <?php require_once './utils/footer.php'?>
     </div>

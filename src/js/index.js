@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   let searchButton = document.querySelector("input[type=submit]");
   let searchInput = document.querySelector("input[type=text]");
-  let result = document.querySelector(".result");
+  let result = document.querySelector(".search__result");
   let specificResult = document.querySelector("ul");
   let approximateResult = document.querySelector("ul:not(ul:first-child)");
 
@@ -49,21 +49,18 @@ document.addEventListener("DOMContentLoaded", () => {
           } else {
             for (let i in response) {
               let title = response[i].titre.toLowerCase();
-              if (title.startsWith(value)) {
-                // console.log("startsWith");
+              function createSuggestion() {
                 const link = document.createElement("a");
                 let resultFind = document.createElement("li");
                 link.href = "element.php?id=" + response[i].id;
                 link.innerHTML = capitalizeFirstLetter(title);
                 specificResult.appendChild(resultFind);
                 resultFind.appendChild(link);
+              }
+              if (title.startsWith(value)) {
+                createSuggestion();
               } else {
-                const link = document.createElement("a");
-                let resultFind = document.createElement("li");
-                link.href = "element.php?id=" + response[i].id;
-                link.innerHTML = capitalizeFirstLetter(title);
-                approximateResult.appendChild(resultFind);
-                resultFind.appendChild(link);
+                createSuggestion();
               }
             }
           }
@@ -97,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
   --------------------------------------------------- */
   const cursor = document.querySelector(".cursor");
   let flyOver = document.querySelectorAll(".flyOver");
-  console.log(flyOver);
+  // console.log(flyOver);
 
   function cursorFollower() {
     document.addEventListener("mousemove", (ev) => {
@@ -116,7 +113,35 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  requestAnimationFrame(cursorFollower);
+  function loop() {
+    cursorFollower();
+    requestAnimationFrame(loop);
+  }
+
+  requestAnimationFrame(loop);
+
+  /* ------------------------------------------------
+                    SEARCHBAR
+  --------------------------------------------------- */
+  // const searchToggle = document.querySelector(".in");
+  // const closeToggle = document.querySelector(".off");
+  const searchPanel = document.querySelector(".search");
+  let togle = false;
+
+  // searchToggle.addEventListener("click", () => {
+  //   searchPanel.style.right = "0%";
+  // });
+
+  // closeToggle.addEventListener("click", () => {
+  //   searchPanel.style.right = "-100%";
+  // });
+
+  let menuToggle = document.querySelector(".menu-tog");
+  menuToggle.addEventListener("click", () => {
+    // searchPanel.style.right = "0%";
+    searchPanel.classList.toggle("search--view");
+    menuToggle.classList.toggle("ready");
+  });
 
   /* ------------------------------------------------
                     EVENT LISTENERS
