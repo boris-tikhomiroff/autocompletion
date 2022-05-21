@@ -1,13 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  let searchButton = document.querySelector("input[type=submit]");
+  /* ------------------------------------------------
+                  AUTOCOMPLETE
+  --------------------------------------------------- */
   let searchInput = document.querySelector("input[type=text]");
   let result = document.querySelector(".search__result");
   let specificResult = document.querySelector("ul");
   let approximateResult = document.querySelector("ul:not(ul:first-child)");
 
-  /* ------------------------------------------------
-                    AUTOCOMPLETE
-  --------------------------------------------------- */
   function cleanSearch() {
     while (
       specificResult.hasChildNodes() ||
@@ -77,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ------------------------------------------------
                     DARKMODE
   --------------------------------------------------- */
-  const toggle = document.querySelector(".toggle");
+  const darkMode = document.querySelector(".darkmode");
 
   function toggleTheme() {
     let page = document.querySelector(".page");
@@ -94,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
   --------------------------------------------------- */
   const cursor = document.querySelector(".cursor");
   let flyOver = document.querySelectorAll(".flyOver");
-  // console.log(flyOver);
 
   function cursorFollower() {
     document.addEventListener("mousemove", (ev) => {
@@ -123,29 +121,16 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ------------------------------------------------
                     SEARCHBAR
   --------------------------------------------------- */
-  // const searchToggle = document.querySelector(".in");
-  // const closeToggle = document.querySelector(".off");
   const searchPanel = document.querySelector(".search");
-  let togle = false;
-
-  // searchToggle.addEventListener("click", () => {
-  //   searchPanel.style.right = "0%";
-  // });
-
-  // closeToggle.addEventListener("click", () => {
-  //   searchPanel.style.right = "-100%";
-  // });
-
   let menuToggle = document.querySelector(".menu-tog");
-  menuToggle.addEventListener("click", () => {
-    // searchPanel.style.right = "0%";
-    searchPanel.classList.toggle("search--view");
-    menuToggle.classList.toggle("ready");
-  });
 
   /* ------------------------------------------------
                     EVENT LISTENERS
   --------------------------------------------------- */
   searchInput.addEventListener("input", autocomplete);
-  toggle.addEventListener("click", toggleTheme);
+  darkMode.addEventListener("click", toggleTheme);
+  menuToggle.addEventListener("click", () => {
+    searchPanel.classList.toggle("search--view");
+    menuToggle.classList.toggle("ready");
+  });
 });

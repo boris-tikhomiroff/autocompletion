@@ -36,15 +36,18 @@ h1 {
 header {
   height: calc(13vh - var(--page-gutter));
   width: 100%;
+  // Centre Nav au milieu du header
   display: flex;
   align-items: center;
-  img {
-    height: 20px;
-    width: 20px;
+
+  nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
   }
 }
 
-.toggle {
+.darkmode {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -73,25 +76,25 @@ header {
   z-index: 10;
   transition: all 1s ease-in-out;
 
+  &__result {
+    height: auto;
+    width: 500px;
+    display: none;
+    z-index: 10;
+    position: absolute;
+
+    ul:first-child {
+      background-color: blue;
+    }
+
+    ul:not(ul:first-child) {
+      background-color: green;
+    }
+  }
+
   &--view {
     right: 0%;
   }
-}
-
-.search__result {
-  height: auto;
-  width: 500px;
-  display: none;
-  z-index: 10;
-  position: absolute;
-}
-
-ul:first-child {
-  background-color: blue;
-}
-
-ul:not(ul:first-child) {
-  background-color: green;
 }
 
 .active {
@@ -99,6 +102,7 @@ ul:not(ul:first-child) {
 }
 
 .menu-tog {
+  // INITIAL STATE
   position: relative;
   display: flex;
   flex-direction: column;
@@ -108,37 +112,41 @@ ul:not(ul:first-child) {
   cursor: pointer;
   transition: 0.5s;
   transform: center;
-}
+  margin-left: auto;
 
-.menu-tog span {
-  height: 2px;
-  background-color: rgb(0, 0, 0);
-  transform-origin: center;
-  transition: 0.2s;
-}
+  & span {
+    height: 2px;
+    // background-color: rgb(0, 0, 0);
+    transform-origin: center;
+    transition: 0.2s;
+    // Pas mal
+    // transition: background-color 1000ms ease-in-out;
 
-.menu-tog span:nth-child(1) {
-  width: 100%;
-}
+    &:nth-child(1) {
+      width: 100%;
+    }
 
-.menu-tog span:nth-child(2) {
-  width: 100%;
-}
+    &:nth-child(2) {
+      width: 100%;
+    }
+  }
 
-.menu-tog.ready span {
-  position: absolute;
-  left: 0%;
-  width: 100%;
-}
+  // MODIFY STATE
+  &.ready span {
+    position: absolute;
+    left: 0%;
+    width: 100%;
 
-.menu-tog.ready span:nth-child(1) {
-  top: 40%;
-  transform: rotate(45deg);
-}
+    &:nth-child(1) {
+      top: 40%;
+      transform: rotate(45deg);
+    }
 
-.menu-tog.ready span:nth-child(2) {
-  bottom: 40%;
-  transform: rotate(-45deg);
+    &:nth-child(2) {
+      bottom: 40%;
+      transform: rotate(-45deg);
+    }
+  }
 }
 
 /* ------------------------------------------------

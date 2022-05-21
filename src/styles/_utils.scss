@@ -65,7 +65,7 @@
   background: #000000;
   color: rgb(255, 255, 255);
 
-  .toggle__circle {
+  .darkmode__circle {
     background-color: #fff;
   }
 
@@ -73,16 +73,15 @@
     background-color: white;
   }
 
-  // .off path {
-  //   fill: #000;
-  // }
-
   .menu-tog span {
     background-color: white;
   }
 
   .search__value {
-    // background-color: rgb(255, 253, 253);
+    color: rgb(0, 0, 0);
+  }
+
+  input[type="submit"] {
     color: rgb(0, 0, 0);
   }
 }
@@ -92,7 +91,7 @@
   background: #ffffff;
   color: rgb(0, 0, 0);
 
-  .toggle__circle {
+  .darkmode__circle {
     background-color: rgb(0, 0, 0);
   }
 
@@ -100,16 +99,16 @@
     background-color: black;
   }
 
-  // .off path {
-  //   fill: #fff;
-  // }
-
   .menu-tog span {
     background-color: rgb(0, 0, 0);
   }
 
   .search__value {
-    // background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
+  }
+
+  input[type="submit"] {
+    color: rgb(255, 255, 255);
+    border: 1px solid white;
   }
 }

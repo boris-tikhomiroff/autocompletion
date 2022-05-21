@@ -1,0 +1,65 @@
+/* ------------------------------------------------
+                    DARKMODE
+--------------------------------------------------- */
+
+[data-theme="dark"] {
+  background: #000000;
+  color: rgb(255, 255, 255);
+
+  .darkmode__circle {
+    background-color: #fff;
+  }
+
+  .search {
+    background-color: white;
+  }
+
+  .menu-tog {
+    z-index: 15;
+    mix-blend-mode: difference;
+  }
+
+  .menu-tog span {
+    background-color: white;
+  }
+
+  .search__value {
+    color: rgb(0, 0, 0);
+  }
+
+  input[type="submit"] {
+    color: rgb(0, 0, 0);
+  }
+}
+
+[data-theme="light"],
+[data-theme=""] {
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+
+  .darkmode__circle {
+    background-color: rgb(0, 0, 0);
+  }
+
+  .menu-tog {
+    z-index: 15;
+    mix-blend-mode: difference;
+  }
+
+  .menu-tog span {
+    background-color: white;
+  }
+
+  .search {
+    background-color: black;
+  }
+
+  .search__value {
+    color: rgb(255, 255, 255);
+  }
+
+  input[type="submit"] {
+    color: rgb(255, 255, 255);
+    border: 1px solid white;
+  }
+}

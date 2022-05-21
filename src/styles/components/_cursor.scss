@@ -1,0 +1,28 @@
+/* ------------------------------------------------
+                    CURSOR
+--------------------------------------------------- */
+.cursor {
+  background: white;
+  // height: 15px;
+  // width: 15px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: absolute;
+  // top: 0;
+  // left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  transition: height 300ms ease, width 300ms ease;
+  transition: transform 300ms ease, transform 300ms ease;
+  pointer-events: none;
+  z-index: 15;
+
+  &__big {
+    // height: 35px;
+    // width: 35px;
+    transform: scale(5);
+  }
+}

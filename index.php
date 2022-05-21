@@ -9,13 +9,14 @@ session_start();
 $_SESSION["search"] = @$_POST['search'];
 // var_dump($_SESSION["search"]);
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     header('location: ./recherche.php');
 }
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,6 +25,7 @@ if(isset($_POST['submit'])){
     <script src="./src/js/index.js"></script>
     <link rel="stylesheet" href="./src/styles/main.css">
 </head>
+
 <body class="page" data-theme="">
     <!--------------------- LOADER --------------------->
     <!-- <div class="loader">
@@ -34,7 +36,7 @@ if(isset($_POST['submit'])){
 
         <!--------------------- CURSOR --------------------->
         <span class="cursor"></span>
-        
+
         <!-- <header>
             <a href="index.php" class="flyOver">G</a>
             <div class="toggle flyOver">
@@ -43,41 +45,47 @@ if(isset($_POST['submit'])){
             </div>
         </header> -->
 
-        <header>
-            <a href="./index.php" class="flyOver">G</a>
+        <!-- <header>
 
-            <div class="menu-tog ">
-                <span></span>
-                <span></span>
-            </div>
-            
+            <nav>
+                <a href="./index.php" class="flyOver">G</a>
+                <div class="menu-tog flyOver">
+                    <span></span>
+                    <span></span>
+                </div>
 
-            <div class="search">
-                <form action="" method="POST" autocomplete="off">
-                    <label for="">Search</label>
-                    <input type="text" placeholder="Search" name="search" class="search__value">
-                    <input type="submit" value="Search" name="submit">
-                </form>
-                <section class="search__result">
-                    <ul>
-                        Précis
-                    </ul>
-                    <hr>
-                    <ul>
-                        Contient
-                    </ul>
-                </section>
-            </div>
 
-            <div class="toggle flyOver">
-                <div class="toggle__mode">(MODE)</div>
-                <div class="toggle__circle"></div>
-            </div>
-            
-        </header>
+                <div class="search">
+                    <form action="" method="POST" autocomplete="off">
+                        <label for="">Search</label>
+                        <input type="text" placeholder="Search" name="search" class="search__value">
+                        <input type="submit" value="Search" name="submit">
+                    </form>
+                    <section class="search__result">
+                        <ul>
+                            Précis
+                        </ul>
+                        <hr>
+                        <ul>
+                            Contient
+                        </ul>
+                    </section>
+                </div>
+
+                <div class="darkmode flyOver">
+                    <div class="darkmode__mode">(MODE)</div>
+                    <div class="darkmode__circle"></div>
+                </div>
+            </nav>
+
+        </header> -->
+
+        <?php require_once './utils/header.php' ?>
 
         <main class="home">
             <h1 class="flyOver">Home</h1>
+            <?php require_once './utils/darkMode.php' ?>
+
             <!-- <form action="" method="POST" autocomplete="off">
                 <label for="">Search</label>
                 <input type="text" placeholder="Search" name="search">
@@ -92,12 +100,13 @@ if(isset($_POST['submit'])){
                     Contient
                 </ul>
             </section> -->
-        
+
             <div class="grid">
                 <div class="grid__img"></div>
             </div>
         </main>
-        <?php require_once './utils/footer.php'?>
+        <?php require_once './utils/footer.php' ?>
     </div>
 </body>
+
 </html>
