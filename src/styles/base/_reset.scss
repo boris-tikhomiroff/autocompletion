@@ -33,6 +33,11 @@ label {
   src: url("../font/Bosch.otf");
 }
 
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
 // h1,
 // h2,
 // h3,

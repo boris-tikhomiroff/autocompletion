@@ -6,6 +6,11 @@
   background: #000000;
   color: rgb(255, 255, 255);
 
+  .darkmode {
+    z-index: 15;
+    mix-blend-mode: difference;
+  }
+
   .darkmode__circle {
     background-color: #fff;
   }
@@ -37,8 +42,14 @@
   background: #ffffff;
   color: rgb(0, 0, 0);
 
+  .darkmode {
+    z-index: 15;
+    mix-blend-mode: difference;
+    color: white;
+  }
+
   .darkmode__circle {
-    background-color: rgb(0, 0, 0);
+    background-color: #fff;
   }
 
   .menu-tog {

@@ -81,10 +81,10 @@ if (isset($_POST['submit'])) {
         </header> -->
 
         <?php require_once './utils/header.php' ?>
+        <?php require_once './utils/darkMode.php' ?>
 
         <main class="home">
             <h1 class="flyOver">Home</h1>
-            <?php require_once './utils/darkMode.php' ?>
 
             <!-- <form action="" method="POST" autocomplete="off">
                 <label for="">Search</label>

@@ -34,6 +34,11 @@ label {
   src: url("../font/Bosch.otf");
 }
 
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
 /* SUMMARY 
 
 - GLOBAL
@@ -53,6 +58,7 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
   width: 100%;
+  max-height: 100vh;
 }
 
 h1 {
@@ -63,6 +69,7 @@ h1 {
 
 .page-wrapper {
   padding: var(--page-gutter);
+  overflow-x: hidden;
 }
 
 /* ------------------------------------------------
@@ -90,6 +97,11 @@ header nav {
 }
 
 .darkmode {
+  position: fixed;
+  top: 85%;
+  left: 0;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -115,20 +127,39 @@ header nav {
 .search {
   position: absolute;
   top: 0;
-  right: -35%;
+  right: -100%;
   height: 100vh;
-  width: 35%;
+  width: 100%;
   z-index: 10;
   -webkit-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
+  padding: calc(var(--page-gutter) * 4);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .search__result {
-  height: auto;
-  width: 500px;
+  overflow: scroll;
+  max-height: 60vh;
+  width: 80vw;
   display: none;
   z-index: 10;
-  position: absolute;
+  font-size: 32px;
+}
+
+.search__result::-webkit-scrollbar {
+  display: none;
 }
 
 .search__result ul:first-child {
@@ -139,8 +170,24 @@ header nav {
   background-color: green;
 }
 
+.search form {
+  width: 80vw;
+}
+
+.search input[type="text"] {
+  border-bottom: 2px solid black;
+  width: 100%;
+  padding: 0 2vw;
+  height: 15vh;
+  font-size: 64px;
+}
+
 .search--view {
   right: 0%;
+}
+
+.search input[type="submit"] {
+  display: none;
 }
 
 .active {
@@ -317,6 +364,11 @@ footer {
   color: white;
 }
 
+[data-theme="dark"] .darkmode {
+  z-index: 15;
+  mix-blend-mode: difference;
+}
+
 [data-theme="dark"] .darkmode__circle {
   background-color: #fff;
 }
@@ -348,9 +400,16 @@ footer {
   color: black;
 }
 
+[data-theme="light"] .darkmode,
+[data-theme=""] .darkmode {
+  z-index: 15;
+  mix-blend-mode: difference;
+  color: white;
+}
+
 [data-theme="light"] .darkmode__circle,
 [data-theme=""] .darkmode__circle {
-  background-color: black;
+  background-color: #fff;
 }
 
 [data-theme="light"] .menu-tog,

@@ -48,18 +48,30 @@ document.addEventListener("DOMContentLoaded", () => {
           } else {
             for (let i in response) {
               let title = response[i].titre.toLowerCase();
-              function createSuggestion() {
+              // function createSuggestion() {
+              //   const link = document.createElement("a");
+              //   let resultFind = document.createElement("li");
+              //   link.href = "element.php?id=" + response[i].id;
+              //   link.innerHTML = capitalizeFirstLetter(title);
+              //   specificResult.appendChild(resultFind);
+              //   resultFind.appendChild(link);
+              // }
+              if (title.startsWith(value)) {
+                // createSuggestion();
                 const link = document.createElement("a");
                 let resultFind = document.createElement("li");
                 link.href = "element.php?id=" + response[i].id;
                 link.innerHTML = capitalizeFirstLetter(title);
                 specificResult.appendChild(resultFind);
                 resultFind.appendChild(link);
-              }
-              if (title.startsWith(value)) {
-                createSuggestion();
               } else {
-                createSuggestion();
+                // createSuggestion();
+                const link = document.createElement("a");
+                let resultFind = document.createElement("li");
+                link.href = "element.php?id=" + response[i].id;
+                link.innerHTML = capitalizeFirstLetter(title);
+                approximateResult.appendChild(resultFind);
+                resultFind.appendChild(link);
               }
             }
           }
@@ -92,9 +104,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     CURSOR
   --------------------------------------------------- */
   const cursor = document.querySelector(".cursor");
-  let flyOver = document.querySelectorAll(".flyOver");
 
   function cursorFollower() {
+    let flyOver = document.querySelectorAll(".flyOver");
     document.addEventListener("mousemove", (ev) => {
       cursor.style.top = ev.clientY + "px";
       cursor.style.left = ev.clientX + "px";
@@ -119,18 +131,57 @@ document.addEventListener("DOMContentLoaded", () => {
   requestAnimationFrame(loop);
 
   /* ------------------------------------------------
-                    SEARCHBAR
+                    MENU
   --------------------------------------------------- */
   const searchPanel = document.querySelector(".search");
   let menuToggle = document.querySelector(".menu-tog");
+  let temp = 0;
+
+  function toggleMenu() {
+    temp++;
+    if (temp % 2 == 0) {
+      console.log("pair");
+      searchInput.blur();
+      searchPanel.classList.remove("search--view");
+      menuToggle.classList.remove("ready");
+    } else {
+      console.log("impair");
+
+      setTimeout(() => {
+        searchInput.focus();
+      }, 1000);
+      searchPanel.classList.add("search--view");
+      menuToggle.classList.add("ready");
+    }
+  }
 
   /* ------------------------------------------------
                     EVENT LISTENERS
   --------------------------------------------------- */
   searchInput.addEventListener("input", autocomplete);
   darkMode.addEventListener("click", toggleTheme);
-  menuToggle.addEventListener("click", () => {
-    searchPanel.classList.toggle("search--view");
-    menuToggle.classList.toggle("ready");
-  });
+  menuToggle.addEventListener("click", toggleMenu);
+  // temp++;
+  // if (temp % 2 == 0) {
+  //   console.log("pair");
+  //   searchInput.blur();
+  //   searchPanel.classList.remove("search--view");
+  //   menuToggle.classList.remove("ready");
+  // } else {
+  //   console.log("impair");
+
+  //   setTimeout(() => {
+  //     searchInput.focus();
+  //   }, 1000);
+  //   searchPanel.classList.add("search--view");
+  //   menuToggle.classList.add("ready");
+  // }
+  // console.log(temp);
+
+  // setTimeout(() => {
+  //   searchInput.focus();
+  // }, 1000);
+  // searchPanel.classList.toggle("search--view");
+  // menuToggle.classList.toggle("ready");
+  // });
 });
