@@ -89,9 +89,17 @@ header {
   align-items: center;
   flex-direction: column;
 
+  hr {
+    width: 25%;
+    margin: auto;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+
   &__result {
     overflow: scroll;
-    max-height: 60vh;
+    max-height: 80vh;
     width: 80vw;
     display: none;
     z-index: 10;
@@ -101,20 +109,24 @@ header {
       display: none;
     }
 
-    ul:first-child {
-      background-color: blue;
+    li {
+      padding: 1vw;
     }
 
-    ul:not(ul:first-child) {
-      background-color: green;
-    }
+    // ul:first-child {
+    //   background-color: blue;
+    // }
+
+    // ul:not(ul:first-child) {
+    //   background-color: green;
+    // }
   }
 
   form {
     width: 80vw;
   }
   input[type="text"] {
-    border-bottom: 2px solid black;
+    // border-bottom: 2px solid black;
     width: 100%;
     padding: 0 2vw;
     height: 15vh;

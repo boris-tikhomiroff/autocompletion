@@ -32,8 +32,16 @@
     color: rgb(0, 0, 0);
   }
 
+  .search__result {
+    color: black;
+  }
+
   input[type="submit"] {
     color: rgb(0, 0, 0);
+  }
+
+  input[type="text"] {
+    border-bottom: 2px solid black;
   }
 }
 
@@ -63,6 +71,19 @@
 
   .search {
     background-color: black;
+
+    hr {
+      border-bottom: 2px dashed white;
+    }
+  }
+
+  .search__result {
+    color: white;
+
+    // ul:first-child li:nth-child(odd) {
+    //   background-color: #fff;
+    //   color: #000000;
+    // }
   }
 
   .search__value {
@@ -72,5 +93,9 @@
   input[type="submit"] {
     color: rgb(255, 255, 255);
     border: 1px solid white;
+  }
+
+  input[type="text"] {
+    border-bottom: 2px solid rgb(255, 255, 255);
   }
 }

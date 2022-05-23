@@ -1,9 +1,9 @@
 <?php
 
-if($_GET['id'] == null){
+if ($_GET['id'] == null) {
     header('location: index.php');
 }
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     $_SESSION["search"] = @$_POST['search'];
     header('location: ./recherche.php');
 }
@@ -16,69 +16,47 @@ $elementId = $element->id;
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+    <!-- <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Element</title>
     <link rel="stylesheet" href="./src/styles/main.css">
-    <script src="./src/js/index.js"></script>
+    <script src="./src/js/index.js"></script> -->
+
+    <?php require_once './utils/meta.php' ?>
+
 </head>
-<body>
-<!-- <header>
-    <a href="./index.php">G</a>
-    <form action="" method="POST" autocomplete="off">
-        <label for="">Search</label>
-        <input type="text" placeholder="Search" name="search">
-        <input type="submit" value="Search" name="submit">
-    </form>
-    <section class="result">
-        <ul>
-            Précis
-        </ul>
-        <hr>
-        <ul>
-            Contient
-        </ul>
-    </section>
-</header> -->
-    <header>
-        <a href="./index.php" class="flyOver">G</a>
 
-        <div class="search">
-            <form action="" method="POST" autocomplete="off">
-                <label for="">Search</label>
-                <input type="text" placeholder="Search" name="search">
-                <input type="submit" value="Search" name="submit">
-            </form>
-            <section class="search__result">
-                <ul>
-                    Précis
-                </ul>
-                <hr>
-                <ul>
-                    Contient
-                </ul>
-            </section>
-        </div>
+<body class="page" data-theme="">
+    <div class="page-wrapper">
 
-        <div class="toggle flyOver">
-            <div class="toggle__mode">(MODE)</div>
-            <div class="toggle__circle"></div>
-        </div>
-            
-    </header>
 
-    <main>
-        <article>
-            <img src="./src/images/<?= $element->image;?>" alt="" width="500px" height="500px">
-            <section>
-                <h2><?= $element->titre;?></h2>
-                <h2><?= formatNb($elementId);?></h2>
-                <h2><?= $element->artiste;?></h2>
-                <h2><?= $element->date;?></h2>
-            </section>
-        </article>
-    </main>
+        <?php require_once './utils/header.php' ?>
+        <?php require_once './utils/darkMode.php' ?>
+
+        <main data-barba="wrapper" data-barba-namespace="element">
+            <article data-barba="container">
+                <img src="./src/images/<?= $element->image; ?>" alt="" width="500px" height="500px">
+                <section>
+                    <h2><?= $element->titre; ?></h2>
+                    <h2><?= formatNb($elementId); ?></h2>
+                    <h2><?= $element->artiste; ?></h2>
+                    <h2><?= $element->date; ?></h2>
+                </section>
+            </article>
+        </main>
+        <?php require_once './utils/footer.php' ?>
+
+        <!--------------------- CURSOR --------------------->
+        <span class="cursor"></span>
+    </div>
+
+    <script src="./src/js/barba.js"></script>
+    <script src="./src/js/barba-prefetch.js"></script>
+    <script src="./src/js/gsap.js"></script>
+    <script src="./src/js/barba-scripts.js"></script>
 </body>
+
 </html>

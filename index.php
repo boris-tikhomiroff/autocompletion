@@ -18,95 +18,47 @@ if (isset($_POST['submit'])) {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <!-- <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <script src="./src/js/index.js"></script>
-    <link rel="stylesheet" href="./src/styles/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script>
+    <script src="./src/js/barba.js"></script>
+    <link rel="stylesheet" href="./src/styles/main.css"> -->
+    <?php require_once './utils/meta.php' ?>
 </head>
 
 <body class="page" data-theme="">
+    <div class="page-wrapper">
+
+        <?php require_once './utils/header.php' ?>
+        <?php require_once './utils/darkMode.php' ?>
+
+        <main data-barba="wrapper" data-barba-namespace="home">
+            <article class="home" data-barba="container">
+                <h1 class="flyOver">Home</h1>
+
+                <div class="grid">
+                    <div class="grid__img"></div>
+                </div>
+            </article>
+        </main>
+        <?php require_once './utils/footer.php' ?>
+
+        <!--------------------- CURSOR --------------------->
+        <span class="cursor"></span>
+    </div>
     <!--------------------- LOADER --------------------->
     <!-- <div class="loader">
         <h1><span>G</span>ilbert Garcin Tribute</h1>
     </div> -->
 
-    <div class="page-wrapper">
+    <script src="./src/js/barba.js"></script>
+    <script src="./src/js/barba-prefetch.js"></script>
+    <script src="./src/js/gsap.js"></script>
+    <script src="./src/js/barba-scripts.js"></script>
 
-        <!--------------------- CURSOR --------------------->
-        <span class="cursor"></span>
-
-        <!-- <header>
-            <a href="index.php" class="flyOver">G</a>
-            <div class="toggle flyOver">
-                <div class="toggle__mode">(MODE)</div>
-                <div class="toggle__circle"></div>
-            </div>
-        </header> -->
-
-        <!-- <header>
-
-            <nav>
-                <a href="./index.php" class="flyOver">G</a>
-                <div class="menu-tog flyOver">
-                    <span></span>
-                    <span></span>
-                </div>
-
-
-                <div class="search">
-                    <form action="" method="POST" autocomplete="off">
-                        <label for="">Search</label>
-                        <input type="text" placeholder="Search" name="search" class="search__value">
-                        <input type="submit" value="Search" name="submit">
-                    </form>
-                    <section class="search__result">
-                        <ul>
-                            Précis
-                        </ul>
-                        <hr>
-                        <ul>
-                            Contient
-                        </ul>
-                    </section>
-                </div>
-
-                <div class="darkmode flyOver">
-                    <div class="darkmode__mode">(MODE)</div>
-                    <div class="darkmode__circle"></div>
-                </div>
-            </nav>
-
-        </header> -->
-
-        <?php require_once './utils/header.php' ?>
-        <?php require_once './utils/darkMode.php' ?>
-
-        <main class="home">
-            <h1 class="flyOver">Home</h1>
-
-            <!-- <form action="" method="POST" autocomplete="off">
-                <label for="">Search</label>
-                <input type="text" placeholder="Search" name="search">
-                <input type="submit" value="Search" name="submit">
-            </form>
-            <section class="result">
-                <ul>
-                    Précis
-                </ul>
-                <hr>
-                <ul>
-                    Contient
-                </ul>
-            </section> -->
-
-            <div class="grid">
-                <div class="grid__img"></div>
-            </div>
-        </main>
-        <?php require_once './utils/footer.php' ?>
-    </div>
 </body>
 
 </html>

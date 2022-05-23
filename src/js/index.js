@@ -112,15 +112,25 @@ document.addEventListener("DOMContentLoaded", () => {
       cursor.style.left = ev.clientX + "px";
     });
 
-    for (let i = 0; flyOver.length; i++) {
-      flyOver[i].addEventListener("mouseover", (ev) => {
+    // for (let i = 0; flyOver.length; i++) {
+    //   flyOver[i].addEventListener("mouseover", (ev) => {
+    //     cursor.classList.add("cursor__big");
+    //   });
+
+    //   flyOver[i].addEventListener("mouseleave", (ev) => {
+    //     cursor.classList.remove("cursor__big");
+    //   });
+    // }
+    
+    flyOver.forEach((el) => {
+      el.addEventListener("mouseover", (ev) => {
         cursor.classList.add("cursor__big");
       });
 
-      flyOver[i].addEventListener("mouseleave", (ev) => {
+      el.addEventListener("mouseleave", (ev) => {
         cursor.classList.remove("cursor__big");
       });
-    }
+    });
   }
 
   function loop() {

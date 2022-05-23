@@ -9,7 +9,7 @@
 
 
         <div class="search">
-            <form action="" method="POST" autocomplete="off">
+            <form action="./recherche.php" method="POST" autocomplete="off">
                 <label for="">Search</label>
                 <input type="text" placeholder="Search" name="search" class="search__value">
                 <input type="submit" value="Search" name="submit">
