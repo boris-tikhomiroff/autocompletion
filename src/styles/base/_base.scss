@@ -83,8 +83,6 @@ header {
   z-index: 10;
   transition: all 1s ease-in-out;
   padding: calc(var(--page-gutter) * 4);
-  // right: -35%;
-  // width: 35%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -113,21 +111,12 @@ header {
     li {
       padding: 1vw;
     }
-
-    // ul:first-child {
-    //   background-color: blue;
-    // }
-
-    // ul:not(ul:first-child) {
-    //   background-color: green;
-    // }
   }
 
   form {
     width: 80vw;
   }
   input[type="text"] {
-    // border-bottom: 2px solid black;
     width: 100%;
     padding: 0 2vw;
     height: 15vh;
@@ -141,6 +130,15 @@ header {
   input[type="submit"] {
     display: none;
   }
+}
+
+.search img {
+  height: 2.5vw;
+  width: 2.5vw;
+  position: absolute;
+  bottom: 2vw;
+  right: 2vw;
+  // z-index: 1001;
 }
 
 .active {
@@ -162,11 +160,8 @@ header {
 
   & span {
     height: 2px;
-    // background-color: rgb(0, 0, 0);
     transform-origin: center;
     transition: 0.2s;
-    // Pas mal
-    // transition: background-color 1000ms ease-in-out;
 
     &:nth-child(1) {
       width: 100%;
@@ -228,7 +223,7 @@ main {
   left: 0;
   font-size: 8vw;
   text-align: center;
-  z-index: 1000;
+  z-index: 5;
 }
 #logo-top {
   top: 0;

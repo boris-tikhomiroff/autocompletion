@@ -84,15 +84,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     DARKMODE
   --------------------------------------------------- */
   const darkMode = document.querySelector(".darkmode");
+  const githubLogo = document.querySelector(".search img");
+  console.log(githubLogo);
 
   function toggleTheme() {
     let page = document.querySelector(".page");
     if (page.dataset.theme == "" || page.dataset.theme == "light") {
       page.setAttribute("data-theme", "dark");
+      githubLogo.setAttribute("src", "./src/images/github-dark.png");
     } else {
       page.setAttribute("data-theme", "light");
+      githubLogo.setAttribute("src", "./src/images/github-light.png");
     }
   }
+
+  /* ------------------------------------------------
+                    CURSOR
+  --------------------------------------------------- */
 
   const cursor = document.querySelector(".cursor");
   let flyOver = document.querySelectorAll(".flyOver");

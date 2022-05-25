@@ -198,6 +198,14 @@ header nav {
   display: none;
 }
 
+.search img {
+  height: 2.5vw;
+  width: 2.5vw;
+  position: absolute;
+  bottom: 2vw;
+  right: 2vw;
+}
+
 .active {
   display: block;
 }
@@ -299,7 +307,7 @@ main article {
   left: 0;
   font-size: 8vw;
   text-align: center;
-  z-index: 1000;
+  z-index: 5;
 }
 
 #logo-top {

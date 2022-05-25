@@ -23,12 +23,12 @@
                     Contient
                 </ul>
             </section>
-        </div>
 
-        <!-- <div class="darkmode flyOver">
-            <div class="darkmode__mode">(MODE)</div>
-            <div class="darkmode__circle"></div>
-        </div> -->
+            <a href="https://github.com/boris-tikhomiroff/autocompletion" class="flyOver" target="_blank">
+                <img src="./src/images/github-light.png" alt="">
+            </a>
+        </div>
     </nav>
+
 
 </header>
