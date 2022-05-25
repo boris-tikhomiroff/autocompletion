@@ -10,6 +10,8 @@ wiper.classList.add("wiper");
 const wiperHolder = document.createElement("div");
 const wiperText = document.createElement("h2");
 wiperText.innerHTML = "Gilbert Garcin";
+
+// Si le pannel recherche est actif changer couleur
 // if (body.getAttribute("data-theme") == "" || "light") {
 //   wiper.style.backgroundColor = "black";
 //   wiperText.style.color = "white";
@@ -39,17 +41,9 @@ barba.init({
             },
           });
 
-          //   const navigation = current.container.querySelectorAll(
-          //     "header, a.next, a.previous"
-          //   );
-          //   const photos = current.container.querySelectorAll("div.photos");
-
           timeline
             .set(wiper, { x: "-100%" })
-            // .set(wiperImage, { opacity: 0 })
             .set(wiperText, { y: "100%" })
-            // .to(navigation, { opacity: 0 }, 0)
-            // .to(photos, { opacity: 0.25, x: 500 }, 0)
             .to(wiper, { x: 0 }, 0);
         });
       },
@@ -69,11 +63,7 @@ barba.init({
           searchPanel.classList.remove("search--view");
           menuToggle.classList.remove("ready");
 
-          timeline
-            // .to(wiperImage, { opacity: 1 }, 0)
-            .to(wiperText, { y: 0 }, 0)
-            .to(wiperText, { y: "100%" }, 2);
-          // .to(wiperImage, { opacity: 0 }, 2);
+          timeline.to(wiperText, { y: 0 }, 0).to(wiperText, { y: "100%" }, 2);
         });
       },
       enter({ current, next, trigger }) {
@@ -85,17 +75,7 @@ barba.init({
             },
           });
 
-          //   const navigation = next.container.querySelectorAll(
-          //     "header, a.next, a.previous"
-          //   );
-          //   const photos = next.container.querySelectorAll("div.photos");
-
-          timeline
-            // .set(navigation, { opacity: 0 })
-            // .set(photos, { opacity: 0.25, x: -500 })
-            // .to(navigation, { opacity: 1 }, 0)
-            // .to(photos, { opacity: 1, x: 0 }, 0)
-            .to(wiper, { x: "100%" }, 0);
+          timeline.to(wiper, { x: "100%" }, 0);
         });
       },
     },

@@ -8,32 +8,22 @@ if (isset($_POST['submit'])) {
     // header('location: ./recherche.php');
     $_SESSION["search"] = @$_POST['search'];
 }
-// var_dump($_SESSION);
 
 
 $search = new PhotographyController();
 $elements = $search->searchbar($_SESSION['search']);
-// if (isset($_SESSION['search'])){
-//     unset($_SESSION['search']);
-// }
 
-// var_dump($elements);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recherche</title>
-    <link rel="stylesheet" href="./src/styles/main.css">
-    <script src="./src/js/index.js"></script> -->
     <?php require_once './utils/meta.php' ?>
 
 </head>
 
 <body class="page" data-theme="">
+
     <div class="page-wrapper">
 
         <?php require_once './utils/header.php' ?>
@@ -41,16 +31,16 @@ $elements = $search->searchbar($_SESSION['search']);
 
         <main data-barba="wrapper" data-barba-namespace="recherche">
             <article data-barba="container">
-                <h1>Hello Recherche</h1>
-                <?php foreach ($elements as $picture) : ?>
-                    <a href="element.php?id=<?= $picture['id'] ?>">
-                        <article>
-                            <img src="./src/images/<?= $picture['image'] ?>" alt="" width="200px" height="100px">
-                            <h2><?= $picture['titre'] ?></h2>
-                        </article>
-                    </a>
-                <?php endforeach; ?>
-
+                <div class="container">
+                    <?php foreach ($elements as $picture) : ?>
+                        <a href="element.php?id=<?= $picture['id'] ?>">
+                            <section class="flyOver">
+                                <img src="./src/images/<?= $picture['image'] ?>" alt="">
+                                <h2><?= $picture['titre'] ?></h2>
+                            </section>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
             </article>
         </main>
         <?php require_once './utils/footer.php' ?>

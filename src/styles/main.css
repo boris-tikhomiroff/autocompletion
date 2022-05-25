@@ -44,6 +44,7 @@ input:focus {
 - GLOBAL
 - HEADER
 - HOME
+- ELEMENT
 - FOOTER
 
 */
@@ -52,6 +53,10 @@ input:focus {
 --------------------------------------------------- */
 :root {
   --page-gutter: 32px;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 body {
@@ -125,7 +130,7 @@ header nav {
 }
 
 .search {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: -100%;
   height: 100vh;
@@ -255,6 +260,32 @@ header nav {
 /* ------------------------------------------------
                     HOME
 --------------------------------------------------- */
+main {
+  height: 74vh;
+  width: 100%;
+}
+
+main article {
+  max-height: 74vh;
+}
+
+.home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
 .grid__img {
   height: 500px;
   width: 350px;
@@ -262,13 +293,126 @@ header nav {
   background-repeat: no-repeat;
 }
 
-.home {
-  height: 74vh;
-  width: 100%;
+.logo {
+  position: fixed;
+  right: 0;
+  left: 0;
+  font-size: 8vw;
+  text-align: center;
+  z-index: 1000;
+}
+
+#logo-top {
+  top: 0;
+  -webkit-transform: translate3d(0, -50%, 0);
+          transform: translate3d(0, -50%, 0);
+}
+
+#logo-bottom {
+  bottom: 0;
+  -webkit-transform: translate3d(0, 50%, 0);
+          transform: translate3d(0, 50%, 0);
+}
+
+/* ------------------------------------------------
+                    ELEMENT
+--------------------------------------------------- */
+.element {
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  justify-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.element hr {
+  background-color: #424242;
+  border: 0.5px solid #adadad;
+}
+
+.element .sec {
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.element .image {
+  width: clamp(400px, 60vw, 600px);
+  height: clamp(400px, 60vw, 600px);
+  background-position: center;
+  background-size: cover;
+}
+
+.element img {
+  width: clamp(400px, 60vw, 600px);
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.element section {
+  padding: 1vw 0 0 0;
+  font-size: clamp(0.6em, 1vw, 2vw);
+  -webkit-box-flex: 20;
+      -ms-flex: 20;
+          flex: 20;
+}
+
+.element section h2:not(h2:nth-child(4)) {
+  width: auto;
+  margin: 1vw 0;
+}
+
+.element section h2:nth-child(1) {
+  font-size: 32px;
+}
+
+/* ------------------------------------------------
+                    RECHERCHE
+--------------------------------------------------- */
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.container a {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 64px;
+}
+
+.container section {
+  word-break: break-all;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -276,6 +420,18 @@ header nav {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.container section img {
+  width: 400px;
+  height: 200px;
+}
+
+@media only screen and (max-width: 768px) {
+  .container a section img {
+    width: 300px;
+    height: 150px;
+  }
 }
 
 /* ------------------------------------------------
@@ -354,9 +510,15 @@ footer {
   z-index: 15;
 }
 
-.cursor__big {
+.cursor--big {
   -webkit-transform: scale(5);
           transform: scale(5);
+}
+
+@media only screen and (max-width: 768px) {
+  .cursor {
+    display: none;
+  }
 }
 
 /* ------------------------------------------------

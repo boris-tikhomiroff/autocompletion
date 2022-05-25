@@ -48,19 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
           } else {
             for (let i in response) {
               let title = response[i].titre.toLowerCase();
-              // function createSuggestion() {
-              //   const link = document.createElement("a");
-              //   let resultFind = document.createElement("li");
-              //   link.href = "element.php?id=" + response[i].id;
-              //   link.innerHTML = capitalizeFirstLetter(title);
-              //   specificResult.appendChild(resultFind);
-              //   resultFind.appendChild(link);
-              // }
               if (title.startsWith(value)) {
                 // createSuggestion();
                 const link = document.createElement("a");
                 let resultFind = document.createElement("li");
                 link.href = "element.php?id=" + response[i].id;
+                link.classList.add("flyOver");
                 link.innerHTML = capitalizeFirstLetter(title);
                 specificResult.appendChild(resultFind);
                 resultFind.appendChild(link);
@@ -69,6 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 const link = document.createElement("a");
                 let resultFind = document.createElement("li");
                 link.href = "element.php?id=" + response[i].id;
+                link.classList.add("flyOver");
+
                 link.innerHTML = capitalizeFirstLetter(title);
                 approximateResult.appendChild(resultFind);
                 resultFind.appendChild(link);
@@ -96,49 +91,46 @@ document.addEventListener("DOMContentLoaded", () => {
       page.setAttribute("data-theme", "dark");
     } else {
       page.setAttribute("data-theme", "light");
-      // cursor.style.background = "black";
     }
   }
 
-  /* ------------------------------------------------
-                    CURSOR
-  --------------------------------------------------- */
   const cursor = document.querySelector(".cursor");
+  let flyOver = document.querySelectorAll(".flyOver");
 
-  function cursorFollower() {
-    let flyOver = document.querySelectorAll(".flyOver");
-    document.addEventListener("mousemove", (ev) => {
-      cursor.style.top = ev.clientY + "px";
-      cursor.style.left = ev.clientX + "px";
-    });
+  let currentMouseX = 0;
+  let currentMouseY = 0;
+  let targetMouseX = 0;
+  let targetMouseY = 0;
+  let speed = 0.1;
 
-    // for (let i = 0; flyOver.length; i++) {
-    //   flyOver[i].addEventListener("mouseover", (ev) => {
-    //     cursor.classList.add("cursor__big");
-    //   });
+  const animate = () => {
+    currentMouseX += (targetMouseX - currentMouseX) * speed;
+    currentMouseY += (targetMouseY - currentMouseY) * speed;
 
-    //   flyOver[i].addEventListener("mouseleave", (ev) => {
-    //     cursor.classList.remove("cursor__big");
-    //   });
-    // }
-    
+    cursor.style.left = `${currentMouseX}px`;
+    cursor.style.top = `${currentMouseY}px`;
+
     flyOver.forEach((el) => {
       el.addEventListener("mouseover", (ev) => {
-        cursor.classList.add("cursor__big");
+        cursor.classList.add("cursor--big");
       });
 
       el.addEventListener("mouseleave", (ev) => {
-        cursor.classList.remove("cursor__big");
+        cursor.classList.remove("cursor--big");
       });
     });
-  }
 
-  function loop() {
-    cursorFollower();
-    requestAnimationFrame(loop);
-  }
+    requestAnimationFrame(animate);
+  };
 
-  requestAnimationFrame(loop);
+  const setCursorPositionAndTargetPosition = (e) => {
+    cursor.style.left = `${e.pageX}px`;
+    cursor.style.top = `${e.pageY}px`;
+    targetMouseX = e.pageX;
+    targetMouseY = e.pageY;
+  };
+
+  animate();
 
   /* ------------------------------------------------
                     MENU
@@ -171,27 +163,5 @@ document.addEventListener("DOMContentLoaded", () => {
   searchInput.addEventListener("input", autocomplete);
   darkMode.addEventListener("click", toggleTheme);
   menuToggle.addEventListener("click", toggleMenu);
-  // temp++;
-  // if (temp % 2 == 0) {
-  //   console.log("pair");
-  //   searchInput.blur();
-  //   searchPanel.classList.remove("search--view");
-  //   menuToggle.classList.remove("ready");
-  // } else {
-  //   console.log("impair");
-
-  //   setTimeout(() => {
-  //     searchInput.focus();
-  //   }, 1000);
-  //   searchPanel.classList.add("search--view");
-  //   menuToggle.classList.add("ready");
-  // }
-  // console.log(temp);
-
-  // setTimeout(() => {
-  //   searchInput.focus();
-  // }, 1000);
-  // searchPanel.classList.toggle("search--view");
-  // menuToggle.classList.toggle("ready");
-  // });
+  document.addEventListener("mousemove", setCursorPositionAndTargetPosition);
 });
